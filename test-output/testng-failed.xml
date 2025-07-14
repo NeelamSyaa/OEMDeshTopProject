@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.ome.testcases.DropDWobnBtnTest">
+      <class name="com.ome.testcases.Bulk_Uploadtest">
         <methods>
           <include name="teardwon"/>
           <include name="setbrowser"/>
-          <include name="searchdata" invocation-numbers="0"/>
+          <include name="bulkupload" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.ome.testcases.DropDWobnBtnTest -->
+      </class> <!-- com.ome.testcases.Bulk_Uploadtest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

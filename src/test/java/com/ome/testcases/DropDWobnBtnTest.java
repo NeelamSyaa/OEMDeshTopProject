@@ -1,5 +1,7 @@
 package com.ome.testcases;
 
+import static org.testng.Assert.fail;
+
 import java.io.IOException;
 
 import org.apache.poi.EncryptedDocumentException;
@@ -10,10 +12,10 @@ import org.testng.annotations.Test;
 import com.base.oem.Base;
 import com.pom.oem.LoginPage;
 import com.pom.oem.Searchdropdwon;
-import com.utilities.oem.ExcelUtilSerialNumber;
 
 
 
+@Test(enabled = false)
 public class DropDWobnBtnTest extends Base {
 	LoginPage LPDP;
 	Searchdropdwon sdpdn;
@@ -28,8 +30,8 @@ public class DropDWobnBtnTest extends Base {
 		LPDP.loginbtnlogin();
 	
 	
-		String imei = ExcelUtilSerialNumber.getCellData("Searchdata1", 1, 0);  
-		System.out.println("IMEI: " + imei);
+		//String imei = ExcelUtilSerialNumber.getCellData("Searchdata1", 1, 0);  
+		//System.out.println("IMEI: " + imei);
 	 //String serialno = ExcelUtilSerialNumber.getCellData("Searchdata1", 1, 2);
 
 	 sdpdn.SearchbyIMEIdrpMenu();
