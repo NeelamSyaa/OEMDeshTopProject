@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 import com.base.oem.Base;
 import com.pom.oem.LoginPage;
 
-@Test(priority = 1)
+//@Test(priority = 1)
 public class LoginTest extends Base {
 	
 

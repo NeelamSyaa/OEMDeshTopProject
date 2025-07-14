@@ -2,7 +2,10 @@ package com.ome.testcases;
 
 import java.io.IOException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -43,10 +46,19 @@ public class AddNewDeviceTest extends Base{
 	   
 	    String dmodelblockbox = ConfigReader.getProperty("DeviceModel");
 	    ad.devicemodeltext(dmodelblockbox);
-	 
+	  
 	    ad.AddNewDevice();
-		
+	    Thread.sleep(2000);
+	WebElement error = driver.findElement(By.xpath("//div[@class=\"MuiBox-root css-mhi1fl\"]"));
+	System.out.println(error.getText());
+	//String expedreulte ="Error: Failed to add device: Error: Failed to add device: error: duplicate key value violates unique constraint \"tcu_inventory_unique\"";
+		//Assert.assertEquals(error, expedreulte);
+	if(error.getText().contains("duplicate key value violates unique constraint")) {
+	    System.out.println("Failed: Duplicate IMEI number");
+	} else {
+	    System.out.println("Error not displayed");
 	}
+}
 	    @DataProvider(name = "addingsigledata")
 	    public Object[][] getData() {
 	        return new Object[][] {

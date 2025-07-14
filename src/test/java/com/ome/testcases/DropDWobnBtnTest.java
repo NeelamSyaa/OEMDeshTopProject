@@ -15,7 +15,7 @@ import com.pom.oem.Searchdropdwon;
 
 
 
-@Test(enabled = false)
+//@Test(enabled = false)
 public class DropDWobnBtnTest extends Base {
 	LoginPage LPDP;
 	Searchdropdwon sdpdn;
@@ -31,11 +31,11 @@ public class DropDWobnBtnTest extends Base {
 	
 	
 		//String imei = ExcelUtilSerialNumber.getCellData("Searchdata1", 1, 0);  
-		//System.out.println("IMEI: " + imei);
+	//	System.out.println("IMEI: " + imei);
 	 //String serialno = ExcelUtilSerialNumber.getCellData("Searchdata1", 1, 2);
 
 	 sdpdn.SearchbyIMEIdrpMenu();
-	// sdpdn.Search_bySerialNodrp(serialno);
+	sdpdn.Search_bySerialNodrp();
 		
 	}
 	

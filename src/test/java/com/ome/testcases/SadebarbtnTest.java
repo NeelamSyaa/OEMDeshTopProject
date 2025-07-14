@@ -10,20 +10,22 @@ import org.testng.annotations.Test;
 import com.base.oem.Base;
 import com.pom.oem.LoginPage;
 import com.pom.oem.sidebarPAGE;
-
+//@Test(priority = 6)
 public class SadebarbtnTest extends Base {
 public 	sidebarPAGE sbp; 
  public LoginPage lp;
+ 
+ 
 @Test(dataProvider ="sidebarmoudle")
 public void sidebarmoudle(String um ,String Password ) throws InterruptedException {
-	Thread.sleep(5000);
+	
    lp = new LoginPage(driver);
    lp.Usernamelogin(um);
    lp.passwordlogin(Password);
    lp.loginbtnlogin();
  
 	 sbp = new sidebarPAGE(driver);
-	  Thread.sleep(5000);
+
 	 sbp.sidebarbtn();
 	 
 }

@@ -11,7 +11,7 @@ public class Searchdropdwon {
 	private WebDriver driver;
 	@FindBy(xpath = "//div[@class=\"MuiFormControl-root MuiTextField-root css-4bwmf8\"]//input[@placeholder=\"Search by IMEI\"]")
 	private WebElement SearchbyIMIE;
-	@FindBy(xpath = "//ul//li[@class=\"MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters css-k9ifbw\"]")
+	@FindBy(xpath = "//*[@id=\"«r3l»\"]//ul//li[2]")
     private	WebElement Searchbydropmenu;
 	@FindBy(xpath =  "//input[@placeholder=\"Search by Serial No\"]")
 	private WebElement Search_bySerialNo;
@@ -20,18 +20,18 @@ public class Searchdropdwon {
 	 this.driver = driver;
 	 PageFactory.initElements(driver, this);
  }
- public void SearchbyIMIE(String imie) {
+ public void SearchbyIMIE( ) {
 	   SearchbyIMIE.clear();
-	   SearchbyIMIE.sendKeys(imie ,Keys.ENTER);
+	   SearchbyIMIE.sendKeys("543645767345436");
  }
  
    public  void SearchbyIMEIdrpMenu() {
 	   Searchbydropmenu.click();
    }
    
-   public void Search_bySerialNodrp( String SerialNo) {
-		 Search_bySerialNo.sendKeys(SerialNo );
-		 Search_bySerialNo.sendKeys(Keys.ENTER);
+   public void Search_bySerialNodrp() {
+		 Search_bySerialNo.sendKeys("2436548679809bhtyujt6ui");
+		
 	 }
    
  
