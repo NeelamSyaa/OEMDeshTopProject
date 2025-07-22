@@ -1,5 +1,7 @@
 package com.ome.testcases;
 
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,33 +14,27 @@ import org.testng.annotations.Test;
 
 import com.base.oem.Base;
 import com.pom.oem.LoginPage;
+import com.utilities.oem.ConfigReader;
 
-//@Test(priority = 1)
+@Test(enabled = true)
 public class LoginTest extends Base {
 	
+	public void loginTest() throws IOException {
+	    LoginPage lp = new LoginPage(driver);
+	    ConfigReader.loadProperties();
+	    lp.enterPassword(ConfigReader.getProperty("username"));
+	    lp.enterPassword(ConfigReader.getProperty("password"));
+	    lp.getCurrentUrl();
+	    lp.getTitle();
+	    
+	    
+lp.clickLogin();
 
-    @Test(dataProvider = "loginData")
-    public void loginTest(String uname, String upassword) {
-        LoginPage lp = new LoginPage(driver);
-        lp.Usernamelogin(uname);
-        lp.passwordlogin(upassword);
-        lp.loginbtnlogin();
-        lp.successMessagelogin();
-        lp.getcurrentURl();
-        lp.gettitle();
-        String expectedTitle = "OEM Tool";
-        String actualTitle = driver.getTitle();
+	    Assert.assertTrue(lp.isSuccessMessageDisplayed(), "Success message not displayed");
+	    Assert.assertEquals(lp.getTitle(), "OEM Tool", "Unexpected title post-login");
+	    System.out.println("Page URL after login: " + lp.getCurrentUrl());
+	}
 
-        Assert.assertEquals(actualTitle, expectedTitle, "Login failed or wrong page loaded.");
-    }
 
-    @DataProvider(name = "loginData")
-    public Object[][] loginCredentials() {
-        return new Object[][] {
-            {"admin", "admin"},
-           // {"admin", "wrongpass"},
-           // {"", ""}
-        };
-    }
 
 }

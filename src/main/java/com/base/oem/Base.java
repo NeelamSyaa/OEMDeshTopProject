@@ -31,7 +31,6 @@ public class Base {
 		}
 
 		else if (browser.equalsIgnoreCase("edge")) {
-			driver = new EdgeDriver();
 		} else {
 			throw new RuntimeException("Browser not supported: " + browser);
 		}
@@ -39,7 +38,7 @@ public class Base {
 		
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-		driver.get(ConfigReader.getProperty("baseURL"));
+		driver.get(ConfigReader.getProperty("url"));
 	}
 
 	@AfterMethod

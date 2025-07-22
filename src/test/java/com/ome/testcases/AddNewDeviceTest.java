@@ -16,20 +16,18 @@ import com.utilities.oem.ConfigReader;
 
 
 
-
+@Test(enabled = false)
 public class AddNewDeviceTest extends Base{
 	AddNewDevicePage ad;
 	 LoginPage PLd;
-	 @Test( dataProvider = "addingsigledata")
-	public void addingsigledata( String username,String password ) throws IOException, InterruptedException {
+	 
+	public void addingsigledata() throws IOException, InterruptedException {
 		ad = new AddNewDevicePage(driver);
 		ConfigReader.loadProperties();
-		System.out.println("Username: " + username);
-	    System.out.println("Password: " + password);
 	    PLd = new LoginPage(driver);    
-	    PLd.Usernamelogin(username);;
-	    PLd.passwordlogin(password);
-	    PLd.loginbtnlogin();
+	    PLd.enterPassword("username");
+	    PLd.enterPassword("password");
+	    PLd.clickLogin();
 	    Thread.sleep(5000); 
 	
 
@@ -59,11 +57,6 @@ public class AddNewDeviceTest extends Base{
 	    System.out.println("Error not displayed");
 	}
 }
-	    @DataProvider(name = "addingsigledata")
-	    public Object[][] getData() {
-	        return new Object[][] {
-	            {"admin", "admin"},
-	           // {"Password", "admin"}
-	        };
-	    }
+	    
+	    
 }

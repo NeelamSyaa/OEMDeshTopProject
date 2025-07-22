@@ -1,65 +1,80 @@
 package com.pom.oem;
 
-import org.jspecify.annotations.Nullable;
-import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 
 public class LoginPage {
-	private WebDriver driver;
-	@FindBy(id = "«r0»")
-	private WebElement usernameInput;
-	@FindBy(id = "«r1»")
-	private WebElement passwordInput;
-	@FindBy(xpath = "//form//button[text()=\"LOGIN\"]")
-	private WebElement loginbtn;
+    private WebDriver driver;
+    private WebDriverWait wait;
 
-	@FindBy(xpath = "//div[text()='Success! Logged In']")
-	WebElement successMessage;
+    @FindBy(id = "r0")
+    private WebElement usernameInput;
 
-//	@FindBy(xpath = "//div[contains(text(),'Invalid Username or Password!')]")
-//	WebElement errorMessage;
+    @FindBy(id = "r1")
+    private WebElement passwordInput;
+
+    @FindBy(xpath = "//form//button[text()='LOGIN']")
+    private WebElement loginBtn;
+
+    @FindBy(xpath = "//div[text()='Success! Logged In']")
+    private WebElement successMessage;
+
+    @FindBy(xpath = "//div[contains(text(),'Invalid Username or Password!')]")
+    private WebElement errorMessage;
+
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        PageFactory.initElements(driver, this);
+    }
+
+    public LoginPage enterUsername(String username) {
+        wait.until(ExpectedConditions.visibilityOf(usernameInput)).clear();
+        usernameInput.sendKeys(username);
+        return this;
+    }
+
+    public LoginPage enterPassword(String password) {
+        wait.until(ExpectedConditions.visibilityOf(passwordInput)).clear();
+        passwordInput.sendKeys(password);
+        return this;
+    }
+
+    public void clickLogin() {
+        loginBtn.click();
+    }
+
+    public boolean isSuccessMessageDisplayed() {
+        try {
+            wait.until(ExpectedConditions.visibilityOf(successMessage));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean isErrorMessageDisplayed() {
+        try {
+            wait.until(ExpectedConditions.visibilityOf(errorMessage));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public String getCurrentUrl() {
+        return driver.getCurrentUrl();
+    }
+
+    public String getTitle() {
+        return driver.getTitle();
+    }
+
 	
 	
-
-	public LoginPage(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
-	}
-
-	public void Usernamelogin( String un) {
-		usernameInput.clear();
-		usernameInput.sendKeys(un);
-	}
-
-	public void passwordlogin(String pw) {
-		passwordInput.clear();
-		passwordInput.sendKeys(pw);
-	}
-
-	public void loginbtnlogin() {
-		loginbtn.click();
-	}
-
-	public void successMessagelogin() {
-	    if (successMessage.isDisplayed()) {
-	        System.out.println("✅ Login success message displayed");
-	    } else {
-	        System.out.println("❌ Success message not found");
-	    }
-	}
-
-	public void getcurrentURl() {
-	 
-	String url = driver.getCurrentUrl();
-	System.out.println(url);
-	 
-	}
-	public void gettitle() {
-	 
-	String title = driver.getTitle();
-	System.out.println(title);
-	}
 }

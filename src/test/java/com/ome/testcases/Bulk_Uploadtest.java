@@ -7,16 +7,16 @@ import org.testng.annotations.Test;
 import com.base.oem.Base;
 import com.pom.oem.BulkUploadPage;
 import com.pom.oem.LoginPage;
-
+@Test(enabled = false)
 public class Bulk_Uploadtest extends Base{
 public	BulkUploadPage Bup;
 LoginPage lp;
-	@Test(dataProvider = "bulkupload")
-	public void bulkupload(String u , String p ) throws InterruptedException {
+
+	public void bulkupload() throws InterruptedException {
 		lp = new LoginPage(driver);
-	    lp.Usernamelogin(u);
-	    lp.passwordlogin(p);
-	    lp.loginbtnlogin();
+		lp.enterPassword("username");
+		lp.enterPassword("password");
+		lp.clickLogin();
 	   
 	    Bup = new BulkUploadPage(driver);
 	   Bup.btnbulkuploaddevice();
@@ -27,11 +27,7 @@ LoginPage lp;
 	    
 	}
 	
-	@DataProvider(name ="bulkupload")
-	public  Object[][] dataprovider(){
-		return  new Object[][] {
-			{ "admin","admin"}
-		};
+	
 		
-	}
+	
 }

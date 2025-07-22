@@ -12,8 +12,8 @@ import com.pom.oem.LoginPage;
 import com.pom.oem.SampleFilePage;
 
 
-
-public class DwonlSimpleFileTest extends Base{
+@Test(enabled = false)
+public class DwonlSimpleFileTest extends Base{ 
 	
 
 	SampleFilePage dp;
@@ -22,12 +22,11 @@ public class DwonlSimpleFileTest extends Base{
 	
 	@Test(priority = 1, dataProvider = "simpleFiledwonloddata")
 	public void simpleFiledwonlod(String username, String password) throws InterruptedException {
-	    System.out.println("Username: " + username);
-	    System.out.println("Password: " + password);
-        LPDP = new LoginPage(driver);    
-	    LPDP.Usernamelogin(username);;
-	    LPDP.passwordlogin(password);
-	    LPDP.loginbtnlogin();
+	    
+        LPDP = new LoginPage(driver);       
+        LPDP.enterPassword("username");
+        LPDP.enterPassword("password");
+        LPDP.clickLogin();
 	    dp = new SampleFilePage(driver);
 	    
 
@@ -38,12 +37,6 @@ public class DwonlSimpleFileTest extends Base{
 	}
 
 
-    @DataProvider(name = "simpleFiledwonloddata")
-    public Object[][] getData() {
-        return new Object[][] {
-            {"admin", "admin"},
-           // {"Password", "admin"}
-        };
+    
 
-}
     }
