@@ -12,10 +12,10 @@ public class LoginPage {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    @FindBy(id = "r0")
+    @FindBy(xpath  = "//input[@placeholder=\"username\"]")
     private WebElement usernameInput;
 
-    @FindBy(id = "r1")
+    @FindBy(xpath  = "//input[@placeholder=\"password\"]")
     private WebElement passwordInput;
 
     @FindBy(xpath = "//form//button[text()='LOGIN']")
@@ -29,7 +29,7 @@ public class LoginPage {
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         PageFactory.initElements(driver, this);
     }
 

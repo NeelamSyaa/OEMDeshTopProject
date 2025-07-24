@@ -11,31 +11,30 @@ import org.testng.annotations.Test;
 
 import com.base.oem.Base;
 import com.pom.oem.LoginPage;
-import com.pom.oem.Searchdropdwon;
+import com.pom.oem.SearchdropdwonDevicePage;
+import com.utilities.oem.ConfigReader;
+import com.utilities.oem.DataGenerator;
 
 
 
-@Test(enabled = false)
+@Test(enabled = true)
 public class DropDWobnBtnTest extends Base {
 	LoginPage LPDP;
-	Searchdropdwon sdpdn;
-	@Test( dataProvider = "searchdata")
-	public void searchdata() throws EncryptedDocumentException, IOException {
-		sdpdn  =	new Searchdropdwon(driver);
-	  
+	SearchdropdwonDevicePage sdpdn;
+@Test
+	public void searchdata() {
+		 // Generate dynamic test data
+     //   String generatedIMEI = DataGenerator.generateIMEI();
+      //  String generatedSerial = DataGenerator.generateSerial();
+		sdpdn  =	new SearchdropdwonDevicePage(driver);
 	    LPDP = new  LoginPage(driver);	
-	    LPDP.enterPassword("username");
-	    LPDP.enterPassword("password");
+	    LPDP.enterUsername(ConfigReader.getProperty("username"));
+	    LPDP.enterPassword(ConfigReader.getProperty("password"));
 	    LPDP.clickLogin();
-		
-	
-	
-		//String imei = ExcelUtilSerialNumber.getCellData("Searchdata1", 1, 0);  
-	//	System.out.println("IMEI: " + imei);
-	 //String serialno = ExcelUtilSerialNumber.getCellData("Searchdata1", 1, 2);
-
-	sdpdn.SearchbyIMEIdrpMenu();
+	sdpdn.SearchbyIMIE();
+  	sdpdn.clcikdropdwonmanuSearch();
 	sdpdn.Search_bySerialNodrp();
+	
 		
 	}
 	

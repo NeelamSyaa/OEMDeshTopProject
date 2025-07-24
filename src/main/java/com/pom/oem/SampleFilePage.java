@@ -18,8 +18,9 @@ public class SampleFilePage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void simplefileDeviceManagerPage() {
+	public SampleFilePage simplefileDeviceManagerPage() {
 		simplefile.click();
+		return this;
 	}
 	
 }

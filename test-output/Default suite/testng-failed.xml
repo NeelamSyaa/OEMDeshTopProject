@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.ome.testcases.LoginTest">
+      <class name="com.ome.testcases.AddNewDeviceTest">
         <methods>
+          <include name="addingsigledata"/>
           <include name="teardwon"/>
-          <include name="loginTest"/>
           <include name="setbrowser"/>
         </methods>
-      </class> <!-- com.ome.testcases.LoginTest -->
+      </class> <!-- com.ome.testcases.AddNewDeviceTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

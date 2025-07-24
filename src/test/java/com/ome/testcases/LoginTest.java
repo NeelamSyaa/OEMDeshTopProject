@@ -18,11 +18,11 @@ import com.utilities.oem.ConfigReader;
 
 @Test(enabled = true)
 public class LoginTest extends Base {
-	
+	@Test
 	public void loginTest() throws IOException {
 	    LoginPage lp = new LoginPage(driver);
 	    ConfigReader.loadProperties();
-	    lp.enterPassword(ConfigReader.getProperty("username"));
+	    lp.enterUsername(ConfigReader.getProperty("username"));
 	    lp.enterPassword(ConfigReader.getProperty("password"));
 	    lp.getCurrentUrl();
 	    lp.getTitle();
