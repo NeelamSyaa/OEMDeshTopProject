@@ -34,7 +34,7 @@ public class DwonlSimpleFileTest extends Base{
 	    
 
 	   dp.simplefileDeviceManagerPage();
-	    Thread.sleep(5000);
+
 	   WebElement element = driver.findElement(By.xpath("//button[normalize-space(text())='Sample File']"));
 	   Assert.assertTrue(element.isDisplayed(), " samplefile button is not visible.");
 	}
