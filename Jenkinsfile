@@ -10,13 +10,13 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean install'
+                bat 'mvn clean install'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
 
@@ -25,12 +25,5 @@ pipeline {
                 archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
             }
         }
-
-        // Optional Deployment Stage
-        // stage('Deploy') {
-        //     steps {
-        //         sh 'scp target/myapp.jar user@server:/deploy/path/'
-        //     }
-        // }
     }
 }
