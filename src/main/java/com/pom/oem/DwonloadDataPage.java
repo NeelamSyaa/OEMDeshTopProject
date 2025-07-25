@@ -22,6 +22,8 @@ public class DwonloadDataPage {
 	
 	 public  DwonloadDataPage dwonloadgelobal() throws InterruptedException {
 		 Thread.sleep(5000);
+	boolean d = dwonloaddatabtn.isEnabled();
+		 System.out.println(d);
 		 dwonloaddatabtn.click();
 		return this;
 		 

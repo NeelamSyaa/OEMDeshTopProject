@@ -19,10 +19,11 @@ public class DwonloadDatatext extends Base {
 		lp = new LoginPage(driver);
 		lp.enterUsername(ConfigReader.getProperty("username"));
 		lp.enterPassword(ConfigReader.getProperty("password"));
-		Thread.sleep(5000);
 		lp.clickLogin();
 		Thread.sleep(5000);
-		ddb.dwonloadgelobal();
+		
+		ddb.dwonloadgelobal()
+		;
 
 	}
 }
