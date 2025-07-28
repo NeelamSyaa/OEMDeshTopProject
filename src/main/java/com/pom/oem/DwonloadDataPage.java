@@ -23,7 +23,7 @@ public class DwonloadDataPage {
 	 public  DwonloadDataPage dwonloadgelobal() throws InterruptedException {
 		 Thread.sleep(5000);
 	boolean d = dwonloaddatabtn.isEnabled();
-		 System.out.println(d);
+		 System.out.println();
 		 dwonloaddatabtn.click();
 		return this;
 		 
