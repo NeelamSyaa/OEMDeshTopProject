@@ -18,7 +18,7 @@ LoginPage lp;
 		lp.enterPassword("password");
 		lp.clickLogin();
 	   
-	    Bup = new BulkUploadPage(driver);
+	   Bup = new BulkUploadPage(driver);
 	   Bup.btnbulkuploaddevice();
 	   Bup.clickfilebtn();
 	   Bup.uploadfile();

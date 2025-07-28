@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class SIMManagementPom {
 
-	@FindBy(xpath = "//ul//li[2]//a[@class=\"MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters Mui-selected MuiListItemButton-root MuiListItemButton-gutters Mui-selected css-tjca0i\"]")
+	@FindBy(xpath = "//div//ul//li/div[@aria-label=\"SIM Management\"]")
 	private WebElement SIMManagementsidebarbtn;
 	private WebDriver driver;
 	
@@ -18,8 +18,9 @@ public class SIMManagementPom {
 	}
 	
 	
-	public void SIMManagementbtn() {
+	public SIMManagementPom  SIMManagementbtn() {
 		SIMManagementsidebarbtn.click();
+		return this;
 	}
 }
 
