@@ -12,7 +12,7 @@ public class ConfigReader {
 
 	    	public static void loadProperties() throws IOException {
 	    		prop = new Properties();
-	    		FileInputStream file = new FileInputStream("C:\\Users\\SYAA TECH\\eclipse-workspace\\OEMDeshTopProject\\data\\config.properties");
+	    		FileInputStream file = new FileInputStream("C:\\Users\\Admin\\git\\OEMDeshTopProject\\data\\config.properties");
 	    		prop.load(file);
 	    	}
 
